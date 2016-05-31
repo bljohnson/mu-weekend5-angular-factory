@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-// var favorite = require('./routes/favorite');
+var favorite = require('./routes/favorite');
 
 
 // Serve back static files
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routes
-// favorite
+app.use('/favorite', favorite);
 app.use('/', index);
 
 // Mongoose

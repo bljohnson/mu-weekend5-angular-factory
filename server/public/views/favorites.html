@@ -1,5 +1,16 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
     <h2>My Favorite Pets</h2>
+    <p>Favorites: {{favCount}}</p>
+  </div>
+</div>
+
+<div ng-repeat="fav in favorites" class="row">
+  <div class="col-md-6 text-right">
+    <img ng-src="{{fav.petImageURL}}" />
+  </div>
+  <div class="col-md-5">
+    <h3>{{fav.petName}}</h3>
+    <p>{{fav.description}}</p>
   </div>
 </div>
