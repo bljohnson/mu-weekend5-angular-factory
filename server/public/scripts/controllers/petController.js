@@ -23,7 +23,7 @@ myApp.controller('PetController', ['$scope', '$http', 'DataFactory', function($s
   }
 
   $scope.findPet = function() {
-    var key = 'b900e0d5e332753a460a64eaa8de00fd';
+    var key = 'your api key here';
     var baseURL = 'http://api.petfinder.com/';
 
     var query = 'pet.getRandom';
