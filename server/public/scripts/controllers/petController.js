@@ -17,13 +17,15 @@ myApp.controller('PetController', ['$scope', '$http', 'DataFactory', function($s
   if($scope.dataFactory.factoryGetFavorites() === undefined) {
     $scope.dataFactory.factoryRefreshFavoriteData().then(function() {
       $scope.favCount = $scope.dataFactory.factoryGetFavorites().length;
+      $scope.thing = $scope.dataFactory.fCurrentThing;
     });
   } else {
     $scope.favCount = $scope.dataFactory.factoryGetFavorites().length;
+    $scope.thing = $scope.dataFactory.fCurrentThing;
   }
 
   $scope.findPet = function() {
-    var key = 'your api key here';
+    var key = 'b900e0d5e332753a460a64eaa8de00fd';
     var baseURL = 'http://api.petfinder.com/';
 
     var query = 'pet.getRandom';

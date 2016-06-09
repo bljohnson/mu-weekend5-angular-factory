@@ -9,10 +9,14 @@ myApp.controller('FavoriteController', ['$scope', '$http', 'DataFactory', functi
     $scope.dataFactory.factoryRefreshFavoriteData().then(function() {
       $scope.favorites = $scope.dataFactory.factoryGetFavorites();
       $scope.favCount = $scope.favorites.length;
+      $scope.thing = $scope.dataFactory.fCurrentThing;
     });
   } else {
     $scope.favorites = $scope.dataFactory.factoryGetFavorites();
     $scope.favCount = $scope.favorites.length;
+    $scope.thing = $scope.dataFactory.fCurrentThing;
   }
+
+  console.log('hello');
 
 }]);

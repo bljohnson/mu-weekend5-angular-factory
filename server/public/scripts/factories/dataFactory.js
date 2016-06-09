@@ -3,6 +3,10 @@ myApp.factory('DataFactory', ['$http', function($http) {
 
   // PRIVATE
   var favorites = undefined;
+  var currentThing = {
+    name: 'Kris',
+    value: 77
+  };
 
   function getFavoriteData() {
     var promise = $http.get('/favorite').then(function(response) {
@@ -14,16 +18,17 @@ myApp.factory('DataFactory', ['$http', function($http) {
   }
 
   function saveFavorite(newFav) {
-    var promise = $http.post('/favorite', newFav).then(function(response) {
+    return $http.post('/favorite', newFav).then(function(response) {
       if(response.status == 201) {
         console.log('Hooray! Favorite Saved!');
+        currentThing.netpet = newFav;
         return getFavoriteData();
       } else {
         console.log('Boo!', response.data);
       }
     });
 
-    return promise;
+    // return promise;
   }
 
   // PUBLIC
@@ -37,7 +42,9 @@ myApp.factory('DataFactory', ['$http', function($http) {
     factoryGetFavorites: function() {
       // return our array
       return favorites;
-    }
+    },
+    // Bind our local var, changes from a controller will be instantly reflected to other consumers of this api
+    fCurrentThing: currentThing
   };
 
   return publicApi;
